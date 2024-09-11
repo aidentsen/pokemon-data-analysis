@@ -11,15 +11,16 @@ Originally based on [Rounak Banik's The Complete Pokémon Dataset](https://www.k
 As a result, the scope of this project now includes making use of APIs and API interfaces to construct a suitable dataset for my purposes entirely on my own, with the help of:
 - [PokeAPI](https://pokeapi.co/)
 - [pokebase: a Python interface for PokeAPI](https://github.com/PokeAPI/pokebase)
+
 The creation of this dataset will also be logged
 
 ## Data of interest
 
 ### Already in PokeAPI (or can be processed from it)
-Standard: Dex num, Name, Generation, Type, Abilities, Gender Rate, Stats
-Status Markers: Baby, Legendary, Mythical 
-Evolution data: Evolves From, Evolution Chain
-Potentially for fun: Color, Shape
+- Standard: Dex num, Name, Generation, Type, Abilities, Gender Rate, Stats 
+- Status Markers: Baby, Legendary, Mythical 
+- Evolution data: Evolves From, Evolution Chain 
+- Potentially for fun: Color, Shape
 
 ### Will have to collect myself
 Status Markers: Ultra Beast, Starter, Pseudo-Legendary
