@@ -16,10 +16,10 @@ The creation of this dataset will also be logged
 ## Data of interest
 
 ### Already in PokeAPI (or can be processed from it)
-Standard: Dex num, Name, Generation, Type, Abilities, Gender Rate, Stats
-Status Markers: Baby, Legendary, Mythical 
-Evolution data: Evolves From, Evolution Chain
-Potentially for fun: Color, Shape
+- Standard: Dex num, Name, Generation, Type, Abilities, Gender Rate, Stats 
+- Status Markers: Baby, Legendary, Mythical 
+- Evolution data: Evolves From, Evolution Chain 
+- Potentially for fun: Color, Shape
 
 ### Will have to collect myself
 Status Markers: Ultra Beast, Starter, Pseudo-Legendary
