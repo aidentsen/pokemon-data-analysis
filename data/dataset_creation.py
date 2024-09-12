@@ -4,6 +4,7 @@ import numpy as np
 
 
 class PokemonData:
+    # Details subject to change with personal definition/time as more games come out, so here for ease of editing
     generation_dict = {
         "generation-i": 1,
         "generation-ii": 2,
@@ -15,12 +16,14 @@ class PokemonData:
         "generation-viii": 8,
         "generation-ix": 9
     }
+    non_standard_starters = ["pikachu", "eevee"]
     pseudo_base_forms = [
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
 
     def __init__(self, dex_num):
         # Set the Pokémon and Pokémon Species endpoints, since most other properties are derived from them
+        # Note that these are NOT the same! 413 gives Wormadam and Wormadam-G, respectively
         self.species_data = pb.pokemon_species(dex_num)
         self.pokemon_data = pb.pokemon(dex_num)
 
@@ -30,7 +33,7 @@ class PokemonData:
         self.generation = self.get_generation()
         self.types = np.array([pokemon_type.type.name for pokemon_type in self.pokemon_data.types])
         self.abilities, self.hidden_ability = self.get_abilities()
-        # has alternate Forme
+        self.varieties = self.get_varieties()
 
         # Supplemental Pokémon information
         self.female_rate = self.species_data.gender_rate  # Note: genderless Mons will give the value -1
@@ -50,7 +53,7 @@ class PokemonData:
         self.evolves_from = self.species_data.evolves_from_species
         self.evolutionary_stage = self.get_evolutionary_stage()
 
-        # Category markers
+        # Category markers - methods written where the data is not naturally present in the API
         self.is_starter = self.id_is_starter()
         self.is_pseudo = self.id_is_pseudo()
         self.is_legendary = self.species_data.is_legendary
@@ -59,9 +62,11 @@ class PokemonData:
         self.is_ultra_beast = self.id_is_ultra_beast()
         self.is_paradox = self.id_is_paradox()
 
-        # Appearance
+        # Appearance and dimensions
         self.colors = self.species_data.colors
         self.shape = self.species_data.shape
+        self.height_m = self.pokemon_data.height / 10.0
+        self.weight_kg = self.pokemon_data.weight / 10.0
 
     def get_generation(self):
         generation_string = self.species_data.generation.name
@@ -86,8 +91,8 @@ class PokemonData:
         pass
 
     def id_is_starter(self):
-        # Need to account for Pikachu and Eevee as non-standard starters
-        if self.name == "pikachu" or self.name == "eevee":
+        # Need to account for non-standard starters (e.g. Pikachu and Eevee)
+        if self.name in PokemonData.non_standard_starters:
             return True
 
         # Find the first Pokémon in the same Generation as this Mon
