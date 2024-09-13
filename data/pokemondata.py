@@ -77,15 +77,15 @@ class PokemonData:
         return PokemonData.generation_dict[generation_string]
 
     def get_abilities(self):
-        normal_abilities = np.array([])
+        normal_abilities = []
         hidden_ability = None
 
         for pokemon_ability in self.pokemon_data.abilities:
             if not pokemon_ability.is_hidden:
-                np.append(normal_abilities, pokemon_ability.ability.name)
+                normal_abilities.append(pokemon_ability.ability.name)
             else:
                 hidden_ability = pokemon_ability.ability.name
-        return normal_abilities, hidden_ability
+        return np.ndarray(normal_abilities), hidden_ability
 
     def get_varieties(self):
         varieties = []
