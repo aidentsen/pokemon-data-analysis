@@ -1,4 +1,3 @@
-import pokebase as pb
 import pandas as pd
 
 from pokemondata import PokemonData
