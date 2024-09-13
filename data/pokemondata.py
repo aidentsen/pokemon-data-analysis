@@ -2,7 +2,7 @@ import pokebase as pb
 
 
 class PokemonData:
-    # Details subject to change with personal definition/time as more games come out, so here for ease of editing
+    # Hardcoded, arbitrary details. Subject to change/personal interpretation, so here for ease of editing
     generation_dict = {
         "generation-i": 1,
         "generation-ii": 2,
@@ -31,7 +31,8 @@ class PokemonData:
     ]
 
     def __init__(self, pokemon):
-        # Set the Pokémon and Pokémon Species endpoints, since most other properties are derived from them
+        # Set the Pokémon and Species endpoints, since all other properties are derived from them
+        # The Pokédex number (413) and specific Pokémon name (e.g. 'wormadam-grass') both work
         self.pokemon_data = pb.pokemon(pokemon)
         self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
 
@@ -39,7 +40,7 @@ class PokemonData:
         self.dex_num = self.species_data.id
         self.name = self.pokemon_data.name
         self.species = self.species_data.name
-        self.generation = self.get_generation()
+        self.generation = self.get_generation()  # Custom method needed as Gen is given as a string
         self.types = [pokemon_type.type.name for pokemon_type in self.pokemon_data.types]
         self.abilities, self.hidden_ability = self.get_abilities()
         self.varieties = self.get_varieties()
@@ -55,13 +56,13 @@ class PokemonData:
         self.hatch_counter = self.species_data.hatch_counter
         self.egg_groups = [egg_group.name for egg_group in self.species_data.egg_groups]
 
-        # Stats
+        # Stats, including Base Stat Total
         self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed = self.get_stats()
         self.bst = sum([self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed])
 
         # Evolution data
         self.evolves_from = self.species_data.evolves_from_species
-        self.evolutionary_stage = self.get_evolutionary_stage()
+        self.evolutionary_stage = self.get_evolutionary_stage()  # Note: -1 for single-stage, 0 for unevolved etc
 
         # Category markers - methods written where the data is not naturally present in the API
         self.is_starter = self.id_is_starter()
@@ -72,6 +73,7 @@ class PokemonData:
         self.is_ultra_beast = self.id_is_ultra_beast()
         self.is_paradox = self.id_is_paradox()
         self.is_mega = "mega" in self.name
+        self.is_totem = "totem" in self.name
         self.is_gmax = "gmax" in self.name
 
         # Appearance and dimensions
@@ -80,35 +82,37 @@ class PokemonData:
         self.height_m = self.pokemon_data.height / 10.0
         self.weight_kg = self.pokemon_data.weight / 10.0
 
-    def get_generation(self):
+    def get_generation(self):  # Return the numerical Generation number
         generation_string = self.species_data.generation.name
         return PokemonData.generation_dict[generation_string]
 
-    def get_abilities(self):
+    def get_abilities(self):  # Returns both normal and hidden Abilities
         normal_abilities = []
         hidden_ability = None
 
         for pokemon_ability in self.pokemon_data.abilities:
-            if not pokemon_ability.is_hidden:
+            if not pokemon_ability.is_hidden:  # Hidden Abilities are processed separately
                 normal_abilities.append(pokemon_ability.ability.name)
             else:
                 hidden_ability = pokemon_ability.ability.name
+
         return normal_abilities, hidden_ability
 
-    def get_varieties(self):
+    def get_varieties(self):  # Find all the other varieties of the Pokémon
         varieties = []
         varieties_data = self.species_data.varieties
         for variety in varieties_data:
-            if self.name != variety.pokemon.name:  # We don't want to include the variety of Pokémon already present
+            if self.name != variety.pokemon.name:  # Excludes the variety of Pokémon already present
                 pokemon_id = int(variety.pokemon.url.strip('/').split('/')[-1])
                 pokemon_name = pb.pokemon(pokemon_id).name
                 varieties.append(pokemon_name)
         return varieties
 
-    def get_primary_ability(self):
+    def get_primary_ability(self):  # Used internally to help identify some Pokémon categories
         return self.pokemon_data.abilities[0].ability.name
 
     def get_stats(self):
+        # Return the stat spread of the given Pokémon
         stat_dict = dict()
         stat_object = self.pokemon_data.stats
         for stat in stat_object:
@@ -153,8 +157,11 @@ class PokemonData:
         return 0 <= position_in_generation <= 8  # The standard starters are always in the first nine Mons of a Gen
 
     def id_is_pseudo(self):
+        # Get the unevolved form of the Pokémon
         evolution_chain_id = self.species_data.evolution_chain.id
         unevolved_form_name = pb.evolution_chain(evolution_chain_id).chain.species.name
+
+        # Determine if the unevolved form is in the list of unevolved pseudo-legendary Pokémon
         return unevolved_form_name in PokemonData.pseudo_base_forms
 
     def id_is_ultra_beast(self):
@@ -166,6 +173,7 @@ class PokemonData:
         return self.get_primary_ability() in ("protosynthesis", "quark-drive", "orichalcum-pulse", "hadron-engine")
 
     def to_dict(self):
+        # Returns a dictionary of all meaningful attributes. Any lists are converted into space-separated strings
         return {
             'dex_num': self.dex_num,
             'name': self.name,
@@ -204,6 +212,7 @@ class PokemonData:
             'is_ultra_beast': self.is_ultra_beast,
             'is_paradox': self.is_paradox,
             'is_mega': self.is_mega,
+            'is-totem': self.is_totem,
             'is_gmax': self.is_gmax,
 
             'color': self.color,
