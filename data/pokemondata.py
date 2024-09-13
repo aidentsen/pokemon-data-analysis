@@ -1,5 +1,4 @@
 import pokebase as pb
-import numpy as np
 
 
 class PokemonData:
@@ -14,6 +13,17 @@ class PokemonData:
         "generation-vii": 7,
         "generation-viii": 8,
         "generation-ix": 9
+    }
+    generation_start_dict = {
+        1: 1,
+        2: 152,
+        3: 252,
+        4: 387,
+        5: 494,
+        6: 650,
+        7: 722,
+        8: 810,
+        9: 906
     }
     non_standard_starters = ["pikachu", "eevee"]
     pseudo_base_forms = [
@@ -33,12 +43,12 @@ class PokemonData:
         self.dex_num = dex_num
         self.name = self.pokemon_data.name
         self.generation = self.get_generation()
-        self.types = np.array([pokemon_type.type.name for pokemon_type in self.pokemon_data.types])
+        self.types = [pokemon_type.type.name for pokemon_type in self.pokemon_data.types]
         self.abilities, self.hidden_ability = self.get_abilities()
         self.varieties = self.get_varieties()
 
         # Supplemental Pokémon information
-        self.female_rate = self.species_data.gender_rate  # Note: genderless Mons will give the value -1
+        self.female_rate = self.species_data.gender_rate  # Note: in eighths, genderless Mons will give the value -1
         self.has_gender_differences = self.species_data.has_gender_differences
         self.capture_rate = self.species_data.capture_rate
         self.growth_rate = self.species_data.growth_rate
@@ -46,7 +56,7 @@ class PokemonData:
 
         # Egg information
         self.hatch_counter = self.species_data.hatch_counter
-        self.egg_groups = np.array([egg_group.name for egg_group in self.species_data.egg_groups])
+        self.egg_groups = [egg_group.name for egg_group in self.species_data.egg_groups]
 
         # Stats
         self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed = self.get_stats()
@@ -85,7 +95,7 @@ class PokemonData:
                 normal_abilities.append(pokemon_ability.ability.name)
             else:
                 hidden_ability = pokemon_ability.ability.name
-        return np.ndarray(normal_abilities), hidden_ability
+        return normal_abilities, hidden_ability
 
     def get_varieties(self):
         varieties = []
@@ -95,7 +105,7 @@ class PokemonData:
                 pokemon_id = int(variety.pokemon.url.strip('/').split('/')[-1])
                 pokemon_name = pb.pokemon(pokemon_id).name
                 varieties.append(pokemon_name)
-        return np.asarray(varieties)
+        return varieties
 
     def get_primary_ability(self):
         return self.pokemon_data.abilities[0].ability.name
@@ -137,7 +147,7 @@ class PokemonData:
             return True
 
         # Find the first Pokémon in the same Generation as this Mon
-        generation_dex_num_start = pb.generation(self.generation).pokemon_species[0].id
+        generation_dex_num_start = PokemonData.generation_start_dict[self.generation]
         if self.generation == 5:  # Account for Victini
             generation_dex_num_start += 1
 
@@ -162,9 +172,9 @@ class PokemonData:
             'dex_num': self.dex_num,
             'name': self.name,
             'generation': self.generation,
-            'types': self.types,
+            'types': " ".join(self.types),
             'abilities': self.abilities,
-            'varieties': self.varieties,
+            'varieties': " ".join(self.varieties),
 
             'female_rate': self.female_rate,
             'has_gender_differences': self.has_gender_differences,
@@ -173,7 +183,7 @@ class PokemonData:
             'base_happiness': self.base_happiness,
 
             'hatch_counter': self.hatch_counter,
-            'egg_groups': self.egg_groups,
+            'egg_groups': " ".join(self.egg_groups),
 
             'hp': self.hp,
             'attack': self.attack,
