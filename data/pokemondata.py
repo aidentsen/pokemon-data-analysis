@@ -57,7 +57,7 @@ class PokemonData:
         self.varieties = self.safe_get_method(self.get_varieties)
 
         # Supplemental Pokémon information
-        self.female_rate = self.safe_get_attr('female_rate', self.species_data)  # In eighths, genderless is -1
+        self.female_rate = self.safe_get_attr('gender_rate', self.species_data)  # In eighths, genderless is -1
         self.has_gender_differences = self.safe_get_attr('has_gender_differences', self.species_data)
         self.capture_rate = self.safe_get_attr('capture_rate', self.species_data)
         self.growth_rate = self.safe_get_attr('growth_rate', self.species_data)
@@ -75,7 +75,7 @@ class PokemonData:
             self.bst = 'missing'
 
         # Evolution data - note evolutionary stage is -1 for single-stage, 0 for unevolved etc
-        self.evolves_from = self.safe_get_attr('evolves_from_species', self.species_data, is_obj=True)
+        self.evolves_from = self.safe_get_attr('evolves_from_species', self.species_data)  # Can legally be None
         self.evolutionary_stage = self.safe_get_method(self.get_evolutionary_stage)
 
         # Category markers
@@ -90,7 +90,7 @@ class PokemonData:
         self.is_totem = "-totem" in self.name
         self.is_gmax = "-gmax" in self.name
 
-        # Appearance
+        # Appearance - cannot legally be None, hence usage of is_obj even though name gets pulled by default
         self.color = self.safe_get_attr('color', self.species_data, is_obj=True)
         self.shape = self.safe_get_attr('shape', self.species_data, is_obj=True)
 

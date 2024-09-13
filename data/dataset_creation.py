@@ -4,37 +4,48 @@ from concurrent.futures import ThreadPoolExecutor
 
 from pokemondata import PokemonData
 
-final_mon_dex_num = 1025
+final_num = 1025
 pokemon_list = []
 error_log_file = 'pokemon_errors.txt'
+processing_log_file = 'pokemon_processing.txt'
 
 start_time = datetime.now()
 
 
 # To process a Pokémon and its varieties by dex number
-def process_pokemon(dex_num, log_file):
-    print(dex_num)  # For logging dataset collation progress
+def process_pokemon(dex_num, processing_file, error_file):
+    # For logging processing
+    start_message = f"{datetime.now()}: starting {dex_num}"
+    processing_file.write(start_message + "\n")
+    print(start_message)
+
     pokemon_data = []
 
-    original_variety = PokemonData(dex_num, log_file)
+    original_variety = PokemonData(dex_num, error_file)
     pokemon_data.append(original_variety.to_dict())
 
     for variety in original_variety.varieties:
-        print(dex_num, variety)  # For logging dataset collation progress
-        additional_variety = PokemonData(dex_num, log_file)
+        # For logging processing
+        start_message = f"{datetime.now()}: starting {variety}"
+        processing_file.write(start_message + "\n")
+        print(start_message)
+
+        additional_variety = PokemonData(dex_num, error_file)
         pokemon_data.append(additional_variety.to_dict())
 
     return dex_num, pokemon_data
 
 
 with ThreadPoolExecutor() as executor:
-    futures = [executor.submit(process_pokemon, dex_num, error_log_file) for dex_num in range(1, final_mon_dex_num+1)]
+    with open(processing_log_file, 'a') as file_manager:
+        futures = [executor.submit(process_pokemon, dex_num, file_manager, error_log_file)
+                   for dex_num in range(1, final_num + 1)]
 
-    # Collect all results and sort by dex_num after gathering
-    results = []
-    for future in futures:
-        dex_num, data = future.result()
-        results.append((dex_num, data))
+        # Collect all results and sort by dex_num after gathering
+        results = []
+        for future in futures:
+            dex_num, data = future.result()
+            results.append((dex_num, data))
 
 results.sort(key=lambda x: x[0])  # Sort by dex_num to preserve the original order
 
