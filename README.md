@@ -1,18 +1,9 @@
 # Pokémon Data Analysis Project
 
 ## Description
-An independent Python data science project, which will be logged on GitHub as it develops, first from an exploratory angle
+An independent Python data science project, starting with data collection and collation. All stages will be logged on GitHub as the project progresses
 
-Originally based on [Rounak Banik's The Complete Pokémon Dataset](https://www.kaggle.com/datasets/rounakbanik/pokemon), but...
-- It only covers up to the end of Gen 7, thus lacking a great deal of info for analysis (as of Gen 9, there are 1025 unique species)
-- It lacked some information I wanted, such as baby status, evolution information, mythical status etc
-- It seemed like I was going to have to do a lot of data cleaning anyway due to improper handling of Regional Formes etc
-
-As a result, the scope of this project now includes making use of APIs and API interfaces to construct a suitable dataset for my purposes entirely on my own, with the help of:
-- [PokeAPI](https://pokeapi.co/)
-- [pokebase: a Python interface for PokeAPI](https://github.com/PokeAPI/pokebase)
-
-The creation of this dataset will also be logged
+Current stage: v0.2, dataset creation
 
 ## Data of interest
 
