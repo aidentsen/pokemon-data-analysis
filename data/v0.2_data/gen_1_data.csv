@@ -1,0 +1,192 @@
+,dex_num,name,generation,types,abilities,varieties,female_rate,has_gender_differences,capture_rate,growth_rate,base_happiness,hatch_counter,egg_groups,hp,attack,defense,sp_attack,sp_defense,speed,evolves_from,evolutionary_stage,is_starter,is_pseudo,is_legendary,is_mythical,is_baby,is_ultra_beast,is_paradox,color,shape,height_m,weight_kg
+0,1,bulbasaur,1,['grass' 'poison'],[],[],1,False,45,medium-slow,50,20,['monster' 'plant'],45,49,49,65,65,45,,0,True,False,False,False,False,False,False,green,quadruped,0.7,6.9
+1,2,ivysaur,1,['grass' 'poison'],[],[],1,False,45,medium-slow,50,20,['monster' 'plant'],60,62,63,80,80,60,bulbasaur,1,True,False,False,False,False,False,False,green,quadruped,1.0,13.0
+2,3,venusaur,1,['grass' 'poison'],[],['venusaur-mega' 'venusaur-gmax'],1,True,45,medium-slow,50,20,['monster' 'plant'],80,82,83,100,100,80,ivysaur,2,True,False,False,False,False,False,False,green,quadruped,2.0,100.0
+3,3,venusaur-mega,1,['grass' 'poison'],[],['venusaur' 'venusaur-gmax'],1,True,45,medium-slow,50,20,['monster' 'plant'],80,100,123,122,120,80,ivysaur,2,True,False,False,False,False,False,False,green,quadruped,2.4,155.5
+4,3,venusaur-gmax,1,['grass' 'poison'],[],['venusaur' 'venusaur-mega'],1,True,45,medium-slow,50,20,['monster' 'plant'],80,82,83,100,100,80,ivysaur,2,True,False,False,False,False,False,False,green,quadruped,24.0,1000.0
+5,4,charmander,1,['fire'],[],[],1,False,45,medium-slow,50,20,['monster' 'dragon'],39,52,43,60,50,65,,0,True,False,False,False,False,False,False,red,upright,0.6,8.5
+6,5,charmeleon,1,['fire'],[],[],1,False,45,medium-slow,50,20,['monster' 'dragon'],58,64,58,80,65,80,charmander,1,True,False,False,False,False,False,False,red,upright,1.1,19.0
+7,6,charizard,1,['fire' 'flying'],[],['charizard-mega-x' 'charizard-mega-y' 'charizard-gmax'],1,False,45,medium-slow,50,20,['monster' 'dragon'],78,84,78,109,85,100,charmeleon,2,True,False,False,False,False,False,False,red,upright,1.7,90.5
+8,6,charizard-mega-x,1,['fire' 'dragon'],[],['charizard' 'charizard-mega-y' 'charizard-gmax'],1,False,45,medium-slow,50,20,['monster' 'dragon'],78,130,111,130,85,100,charmeleon,2,True,False,False,False,False,False,False,red,upright,1.7,110.5
+9,6,charizard-mega-y,1,['fire' 'flying'],[],['charizard' 'charizard-mega-x' 'charizard-gmax'],1,False,45,medium-slow,50,20,['monster' 'dragon'],78,104,78,159,115,100,charmeleon,2,True,False,False,False,False,False,False,red,upright,1.7,100.5
+10,6,charizard-gmax,1,['fire' 'flying'],[],['charizard' 'charizard-mega-x' 'charizard-mega-y'],1,False,45,medium-slow,50,20,['monster' 'dragon'],78,84,78,109,85,100,charmeleon,2,True,False,False,False,False,False,False,red,upright,28.0,1000.0
+11,7,squirtle,1,['water'],[],[],1,False,45,medium-slow,50,20,['monster' 'water1'],44,48,65,50,64,43,,0,True,False,False,False,False,False,False,blue,upright,0.5,9.0
+12,8,wartortle,1,['water'],[],[],1,False,45,medium-slow,50,20,['monster' 'water1'],59,63,80,65,80,58,squirtle,1,True,False,False,False,False,False,False,blue,upright,1.0,22.5
+13,9,blastoise,1,['water'],[],['blastoise-mega' 'blastoise-gmax'],1,False,45,medium-slow,50,20,['monster' 'water1'],79,83,100,85,105,78,wartortle,2,True,False,False,False,False,False,False,blue,upright,1.6,85.5
+14,9,blastoise-mega,1,['water'],[],['blastoise' 'blastoise-gmax'],1,False,45,medium-slow,50,20,['monster' 'water1'],79,103,120,135,115,78,wartortle,2,True,False,False,False,False,False,False,blue,upright,1.6,101.1
+15,9,blastoise-gmax,1,['water'],[],['blastoise' 'blastoise-mega'],1,False,45,medium-slow,50,20,['monster' 'water1'],79,83,100,85,105,78,wartortle,2,True,False,False,False,False,False,False,blue,upright,25.0,1000.0
+16,10,caterpie,1,['bug'],[],[],4,False,255,medium,50,15,['bug'],45,30,35,20,20,45,,0,False,False,False,False,False,False,False,green,armor,0.3,2.9
+17,11,metapod,1,['bug'],[],[],4,False,120,medium,50,15,['bug'],50,20,55,25,25,30,caterpie,1,False,False,False,False,False,False,False,green,squiggle,0.7,9.9
+18,12,butterfree,1,['bug' 'flying'],[],['butterfree-gmax'],4,True,45,medium,50,15,['bug'],60,45,50,90,80,70,metapod,2,False,False,False,False,False,False,False,white,bug-wings,1.1,32.0
+19,12,butterfree-gmax,1,['bug' 'flying'],[],['butterfree'],4,True,45,medium,50,15,['bug'],60,45,50,90,80,70,metapod,2,False,False,False,False,False,False,False,white,bug-wings,17.0,1000.0
+20,13,weedle,1,['bug' 'poison'],[],[],4,False,255,medium,70,15,['bug'],40,35,30,20,20,50,,0,False,False,False,False,False,False,False,brown,armor,0.3,3.2
+21,14,kakuna,1,['bug' 'poison'],[],[],4,False,120,medium,70,15,['bug'],45,25,50,25,25,35,weedle,1,False,False,False,False,False,False,False,yellow,squiggle,0.6,10.0
+22,15,beedrill,1,['bug' 'poison'],[],['beedrill-mega'],4,False,45,medium,70,15,['bug'],65,90,40,45,80,75,kakuna,2,False,False,False,False,False,False,False,yellow,bug-wings,1.0,29.5
+23,15,beedrill-mega,1,['bug' 'poison'],[],['beedrill'],4,False,45,medium,70,15,['bug'],65,150,40,15,80,145,kakuna,2,False,False,False,False,False,False,False,yellow,bug-wings,1.4,40.5
+24,16,pidgey,1,['normal' 'flying'],[],[],4,False,255,medium-slow,70,15,['flying'],40,45,40,35,35,56,,0,False,False,False,False,False,False,False,brown,wings,0.3,1.8
+25,17,pidgeotto,1,['normal' 'flying'],[],[],4,False,120,medium-slow,70,15,['flying'],63,60,55,50,50,71,pidgey,1,False,False,False,False,False,False,False,brown,wings,1.1,30.0
+26,18,pidgeot,1,['normal' 'flying'],[],['pidgeot-mega'],4,False,45,medium-slow,70,15,['flying'],83,80,75,70,70,101,pidgeotto,2,False,False,False,False,False,False,False,brown,wings,1.5,39.5
+27,18,pidgeot-mega,1,['normal' 'flying'],[],['pidgeot'],4,False,45,medium-slow,70,15,['flying'],83,80,80,135,80,121,pidgeotto,2,False,False,False,False,False,False,False,brown,wings,2.2,50.5
+28,19,rattata,1,['normal'],[],['rattata-alola'],4,True,255,medium,70,15,['ground'],30,56,35,25,35,72,,0,False,False,False,False,False,False,False,purple,quadruped,0.3,3.5
+29,19,rattata-alola,1,['dark' 'normal'],[],['rattata'],4,True,255,medium,70,15,['ground'],30,56,35,25,35,72,,0,False,False,False,False,False,False,False,purple,quadruped,0.3,3.8
+30,20,raticate,1,['normal'],[],['raticate-alola' 'raticate-totem-alola'],4,True,127,medium,70,15,['ground'],55,81,60,50,70,97,rattata,1,False,False,False,False,False,False,False,brown,quadruped,0.7,18.5
+31,20,raticate-alola,1,['dark' 'normal'],[],['raticate' 'raticate-totem-alola'],4,True,127,medium,70,15,['ground'],75,71,70,40,80,77,rattata,2,False,False,False,False,False,False,False,brown,quadruped,0.7,25.5
+32,20,raticate-totem-alola,1,['dark' 'normal'],[],['raticate' 'raticate-alola'],4,True,127,medium,70,15,['ground'],75,71,70,40,80,77,rattata,2,False,False,False,False,False,False,False,brown,quadruped,1.4,105.0
+33,21,spearow,1,['normal' 'flying'],[],[],4,False,255,medium,70,15,['flying'],40,60,30,31,31,70,,0,False,False,False,False,False,False,False,brown,wings,0.3,2.0
+34,22,fearow,1,['normal' 'flying'],[],[],4,False,90,medium,70,15,['flying'],65,90,65,61,61,100,spearow,1,False,False,False,False,False,False,False,brown,wings,1.2,38.0
+35,23,ekans,1,['poison'],[],[],4,False,255,medium,70,20,['ground' 'dragon'],35,60,44,40,54,55,,0,False,False,False,False,False,False,False,purple,squiggle,2.0,6.9
+36,24,arbok,1,['poison'],[],[],4,False,90,medium,70,20,['ground' 'dragon'],60,95,69,65,79,80,ekans,1,False,False,False,False,False,False,False,purple,squiggle,3.5,65.0
+37,25,pikachu,1,['electric'],[],"['pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star' 'pikachu-phd'
+ 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,1,True,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+38,25,pikachu-rock-star,1,['electric'],[],"['pikachu' 'pikachu-belle' 'pikachu-pop-star' 'pikachu-phd'
+ 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+39,25,pikachu-belle,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-pop-star' 'pikachu-phd'
+ 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+40,25,pikachu-pop-star,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-phd'
+ 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+41,25,pikachu-phd,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+42,25,pikachu-libre,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+43,25,pikachu-cosplay,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-original-cap' 'pikachu-hoenn-cap'
+ 'pikachu-sinnoh-cap' 'pikachu-unova-cap' 'pikachu-kalos-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+44,25,pikachu-original-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-hoenn-cap'
+ 'pikachu-sinnoh-cap' 'pikachu-unova-cap' 'pikachu-kalos-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+45,25,pikachu-hoenn-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-sinnoh-cap' 'pikachu-unova-cap' 'pikachu-kalos-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+46,25,pikachu-sinnoh-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-unova-cap' 'pikachu-kalos-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+47,25,pikachu-unova-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-kalos-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+48,25,pikachu-kalos-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-alola-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+49,25,pikachu-alola-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-partner-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+50,25,pikachu-partner-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-starter'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+51,25,pikachu-starter,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-world-cap' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],45,80,50,75,60,120,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+52,25,pikachu-world-cap,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-gmax']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,0.4,6.0
+53,25,pikachu-gmax,1,['electric'],[],"['pikachu' 'pikachu-rock-star' 'pikachu-belle' 'pikachu-pop-star'
+ 'pikachu-phd' 'pikachu-libre' 'pikachu-cosplay' 'pikachu-original-cap'
+ 'pikachu-hoenn-cap' 'pikachu-sinnoh-cap' 'pikachu-unova-cap'
+ 'pikachu-kalos-cap' 'pikachu-alola-cap' 'pikachu-partner-cap'
+ 'pikachu-starter' 'pikachu-world-cap']",4,True,190,medium,50,10,['ground' 'fairy'],35,55,40,50,50,90,pichu,2,False,False,False,False,False,False,False,yellow,quadruped,21.0,1000.0
+54,26,raichu,1,['electric'],[],['raichu-alola'],4,True,75,medium,50,10,['ground' 'fairy'],60,90,55,90,80,110,pikachu,2,False,False,False,False,False,False,False,yellow,upright,0.8,30.0
+55,26,raichu-alola,1,['electric' 'psychic'],[],['raichu'],4,True,75,medium,50,10,['ground' 'fairy'],60,85,50,95,85,110,pikachu,2,False,False,False,False,False,False,False,yellow,upright,0.7,21.0
+56,27,sandshrew,1,['ground'],[],['sandshrew-alola'],4,False,255,medium,50,20,['ground'],50,75,85,20,30,40,,0,False,False,False,False,False,False,False,yellow,upright,0.6,12.0
+57,27,sandshrew-alola,1,['ice' 'steel'],[],['sandshrew'],4,False,255,medium,50,20,['ground'],50,75,90,10,35,40,,0,False,False,False,False,False,False,False,yellow,upright,0.7,40.0
+58,28,sandslash,1,['ground'],[],['sandslash-alola'],4,False,90,medium,50,20,['ground'],75,100,110,45,55,65,sandshrew,1,False,False,False,False,False,False,False,yellow,upright,1.0,29.5
+59,28,sandslash-alola,1,['ice' 'steel'],[],['sandslash'],4,False,90,medium,50,20,['ground'],75,100,120,25,65,65,sandshrew,2,False,False,False,False,False,False,False,yellow,upright,1.2,55.0
+60,29,nidoran-f,1,['poison'],[],[],8,False,235,medium-slow,50,20,['monster' 'ground'],55,47,52,40,40,41,,0,False,False,False,False,False,False,False,blue,quadruped,0.4,7.0
+61,30,nidorina,1,['poison'],[],[],8,False,120,medium-slow,50,20,['no-eggs'],70,62,67,55,55,56,nidoran-f,1,False,False,False,False,False,False,False,blue,quadruped,0.8,20.0
+62,31,nidoqueen,1,['poison' 'ground'],[],[],8,False,45,medium-slow,50,20,['no-eggs'],90,92,87,75,85,76,nidorina,2,False,False,False,False,False,False,False,blue,upright,1.3,60.0
+63,32,nidoran-m,1,['poison'],[],[],0,False,235,medium-slow,50,20,['monster' 'ground'],46,57,40,40,40,50,,0,False,False,False,False,False,False,False,purple,quadruped,0.5,9.0
+64,33,nidorino,1,['poison'],[],[],0,False,120,medium-slow,50,20,['monster' 'ground'],61,72,57,55,55,65,nidoran-m,1,False,False,False,False,False,False,False,purple,quadruped,0.9,19.5
+65,34,nidoking,1,['poison' 'ground'],[],[],0,False,45,medium-slow,50,20,['monster' 'ground'],81,102,77,85,75,85,nidorino,2,False,False,False,False,False,False,False,purple,upright,1.4,62.0
+66,35,clefairy,1,['fairy'],[],[],6,False,150,fast,140,10,['fairy'],70,45,48,60,65,35,cleffa,1,False,False,False,False,False,False,False,pink,upright,0.6,7.5
+67,36,clefable,1,['fairy'],[],[],6,False,25,fast,140,10,['fairy'],95,70,73,95,90,60,clefairy,2,False,False,False,False,False,False,False,pink,upright,1.3,40.0
+68,37,vulpix,1,['fire'],[],['vulpix-alola'],6,False,190,medium,50,20,['ground'],38,41,40,50,65,65,,0,False,False,False,False,False,False,False,brown,quadruped,0.6,9.9
+69,37,vulpix-alola,1,['ice'],[],['vulpix'],6,False,190,medium,50,20,['ground'],38,41,40,50,65,65,,0,False,False,False,False,False,False,False,brown,quadruped,0.6,9.9
+70,38,ninetales,1,['fire'],[],['ninetales-alola'],6,False,75,medium,50,20,['ground'],73,76,75,81,100,100,vulpix,1,False,False,False,False,False,False,False,yellow,quadruped,1.1,19.9
+71,38,ninetales-alola,1,['ice' 'fairy'],[],['ninetales'],6,False,75,medium,50,20,['ground'],73,67,75,81,100,109,vulpix,2,False,False,False,False,False,False,False,yellow,quadruped,1.1,19.9
+72,39,jigglypuff,1,['normal' 'fairy'],[],[],6,False,170,fast,50,10,['fairy'],115,45,20,45,25,20,igglybuff,1,False,False,False,False,False,False,False,pink,humanoid,0.5,5.5
+73,40,wigglytuff,1,['normal' 'fairy'],[],[],6,False,50,fast,50,10,['fairy'],140,70,45,85,50,45,jigglypuff,2,False,False,False,False,False,False,False,pink,humanoid,1.0,12.0
+74,41,zubat,1,['poison' 'flying'],[],[],4,True,255,medium,50,15,['flying'],40,45,35,30,40,55,,0,False,False,False,False,False,False,False,purple,wings,0.8,7.5
+75,42,golbat,1,['poison' 'flying'],[],[],4,True,90,medium,50,15,['flying'],75,80,70,65,75,90,zubat,1,False,False,False,False,False,False,False,purple,wings,1.6,55.0
+76,43,oddish,1,['grass' 'poison'],[],[],4,False,255,medium-slow,50,20,['plant'],45,50,55,75,65,30,,0,False,False,False,False,False,False,False,blue,legs,0.5,5.4
+77,44,gloom,1,['grass' 'poison'],[],[],4,True,120,medium-slow,50,20,['plant'],60,65,70,85,75,40,oddish,1,False,False,False,False,False,False,False,blue,humanoid,0.8,8.6
+78,45,vileplume,1,['grass' 'poison'],[],[],4,True,45,medium-slow,50,20,['plant'],75,80,85,110,90,50,gloom,2,False,False,False,False,False,False,False,red,humanoid,1.2,18.6
+79,46,paras,1,['bug' 'grass'],[],[],4,False,190,medium,70,20,['bug' 'plant'],35,70,55,45,55,25,,0,False,False,False,False,False,False,False,red,armor,0.3,5.4
+80,47,parasect,1,['bug' 'grass'],[],[],4,False,75,medium,70,20,['bug' 'plant'],60,95,80,60,80,30,paras,1,False,False,False,False,False,False,False,red,armor,1.0,29.5
+81,48,venonat,1,['bug' 'poison'],[],[],4,False,190,medium,70,20,['bug'],60,55,50,40,55,45,,0,False,False,False,False,False,False,False,purple,humanoid,1.0,30.0
+82,49,venomoth,1,['bug' 'poison'],[],[],4,False,75,medium,70,20,['bug'],70,65,60,90,75,90,venonat,1,False,False,False,False,False,False,False,purple,bug-wings,1.5,12.5
+83,50,diglett,1,['ground'],[],['diglett-alola'],4,False,255,medium,50,20,['ground'],10,55,25,35,45,95,,0,False,False,False,False,False,False,False,brown,blob,0.2,0.8
+84,50,diglett-alola,1,['ground' 'steel'],[],['diglett'],4,False,255,medium,50,20,['ground'],10,55,30,35,45,90,,0,False,False,False,False,False,False,False,brown,blob,0.2,1.0
+85,51,dugtrio,1,['ground'],[],['dugtrio-alola'],4,False,50,medium,50,20,['ground'],35,100,50,50,70,120,diglett,1,False,False,False,False,False,False,False,brown,heads,0.7,33.3
+86,51,dugtrio-alola,1,['ground' 'steel'],[],['dugtrio'],4,False,50,medium,50,20,['ground'],35,100,60,50,70,110,diglett,2,False,False,False,False,False,False,False,brown,heads,0.7,66.6
+87,52,meowth,1,['normal'],[],['meowth-alola' 'meowth-galar' 'meowth-gmax'],4,False,255,medium,50,20,['ground'],40,45,35,40,40,90,,0,False,False,False,False,False,False,False,yellow,quadruped,0.4,4.2
+88,52,meowth-alola,1,['dark'],[],['meowth' 'meowth-galar' 'meowth-gmax'],4,False,255,medium,50,20,['ground'],40,35,35,50,40,90,,0,False,False,False,False,False,False,False,yellow,quadruped,0.4,4.2
+89,52,meowth-galar,1,['steel'],[],['meowth' 'meowth-alola' 'meowth-gmax'],4,False,255,medium,50,20,['ground'],50,65,55,40,40,40,,0,False,False,False,False,False,False,False,yellow,quadruped,0.4,7.5
+90,52,meowth-gmax,1,['normal'],[],['meowth' 'meowth-alola' 'meowth-galar'],4,False,255,medium,50,20,['ground'],40,45,35,40,40,90,,0,False,False,False,False,False,False,False,yellow,quadruped,33.0,1000.0
+91,53,persian,1,['normal'],[],['persian-alola'],4,False,90,medium,50,20,['ground'],65,70,60,65,65,115,meowth,1,False,False,False,False,False,False,False,yellow,quadruped,1.0,32.0
+92,53,persian-alola,1,['dark'],[],['persian'],4,False,90,medium,50,20,['ground'],65,60,60,75,65,115,meowth,2,False,False,False,False,False,False,False,yellow,quadruped,1.1,33.0
+93,54,psyduck,1,['water'],[],[],4,False,190,medium,50,20,['water1' 'ground'],50,52,48,65,50,55,,0,False,False,False,False,False,False,False,yellow,upright,0.8,19.6
+94,55,golduck,1,['water'],[],[],4,False,75,medium,50,20,['water1' 'ground'],80,82,78,95,80,85,psyduck,1,False,False,False,False,False,False,False,blue,upright,1.7,76.6
+95,56,mankey,1,['fighting'],[],[],4,False,190,medium,70,20,['ground'],40,80,35,35,45,70,,0,False,False,False,False,False,False,False,brown,upright,0.5,28.0
+96,57,primeape,1,['fighting'],[],[],4,False,75,medium,70,20,['ground'],65,105,60,60,70,95,mankey,1,False,False,False,False,False,False,False,brown,upright,1.0,32.0
+97,58,growlithe,1,['fire'],[],['growlithe-hisui'],2,False,190,slow,50,20,['ground'],55,70,45,70,50,60,,0,False,False,False,False,False,False,False,brown,quadruped,0.7,19.0
+98,58,growlithe-hisui,1,['fire' 'rock'],[],['growlithe'],2,False,190,slow,50,20,['ground'],60,75,45,65,50,55,,0,False,False,False,False,False,False,False,brown,quadruped,0.8,22.7
+99,59,arcanine,1,['fire'],[],['arcanine-hisui'],2,False,75,slow,50,20,['ground'],90,110,80,100,80,95,growlithe,1,False,False,False,False,False,False,False,brown,quadruped,1.9,155.0
+100,59,arcanine-hisui,1,['fire' 'rock'],[],['arcanine'],2,False,75,slow,50,20,['ground'],95,115,80,95,80,90,growlithe,2,False,False,False,False,False,False,False,brown,quadruped,2.0,168.0
+101,60,poliwag,1,['water'],[],[],4,False,255,medium-slow,50,20,['water1'],40,50,40,40,40,90,,0,False,False,False,False,False,False,False,blue,legs,0.6,12.4
+102,61,poliwhirl,1,['water'],[],[],4,False,120,medium-slow,50,20,['water1'],65,65,65,50,50,90,poliwag,1,False,False,False,False,False,False,False,blue,humanoid,1.0,20.0
+103,62,poliwrath,1,['water' 'fighting'],[],[],4,False,45,medium-slow,50,20,['water1'],90,95,95,70,90,70,poliwhirl,2,False,False,False,False,False,False,False,blue,humanoid,1.3,54.0
+104,63,abra,1,['psychic'],[],[],2,False,200,medium-slow,50,20,['humanshape'],25,20,15,105,55,90,,0,False,False,False,False,False,False,False,brown,upright,0.9,19.5
+105,64,kadabra,1,['psychic'],[],[],2,True,100,medium-slow,50,20,['humanshape'],40,35,30,120,70,105,abra,1,False,False,False,False,False,False,False,brown,upright,1.3,56.5
+106,65,alakazam,1,['psychic'],[],['alakazam-mega'],2,True,50,medium-slow,50,20,['humanshape'],55,50,45,135,95,120,kadabra,2,False,False,False,False,False,False,False,brown,humanoid,1.5,48.0
+107,65,alakazam-mega,1,['psychic'],[],['alakazam'],2,True,50,medium-slow,50,20,['humanshape'],55,50,65,175,105,150,kadabra,2,False,False,False,False,False,False,False,brown,humanoid,1.2,48.0
+108,66,machop,1,['fighting'],[],[],2,False,180,medium-slow,50,20,['humanshape'],70,80,50,35,35,35,,0,False,False,False,False,False,False,False,gray,upright,0.8,19.5
+109,67,machoke,1,['fighting'],[],[],2,False,90,medium-slow,50,20,['humanshape'],80,100,70,50,60,45,machop,1,False,False,False,False,False,False,False,gray,humanoid,1.5,70.5
+110,68,machamp,1,['fighting'],[],['machamp-gmax'],2,False,45,medium-slow,50,20,['humanshape'],90,130,80,65,85,55,machoke,2,False,False,False,False,False,False,False,gray,humanoid,1.6,130.0
+111,68,machamp-gmax,1,['fighting'],[],['machamp'],2,False,45,medium-slow,50,20,['humanshape'],90,130,80,65,85,55,machoke,2,False,False,False,False,False,False,False,gray,humanoid,25.0,1000.0
+112,69,bellsprout,1,['grass' 'poison'],[],[],4,False,255,medium-slow,70,20,['plant'],50,75,35,70,30,40,,0,False,False,False,False,False,False,False,green,humanoid,0.7,4.0
+113,70,weepinbell,1,['grass' 'poison'],[],[],4,False,120,medium-slow,70,20,['plant'],65,90,50,85,45,55,bellsprout,1,False,False,False,False,False,False,False,green,blob,1.0,6.4
+114,71,victreebel,1,['grass' 'poison'],[],[],4,False,45,medium-slow,70,20,['plant'],80,105,65,100,70,70,weepinbell,2,False,False,False,False,False,False,False,green,blob,1.7,15.5
+115,72,tentacool,1,['water' 'poison'],[],[],4,False,190,slow,50,20,['water3'],40,40,35,50,100,70,,0,False,False,False,False,False,False,False,blue,tentacles,0.9,45.5
+116,73,tentacruel,1,['water' 'poison'],[],[],4,False,60,slow,50,20,['water3'],80,70,65,80,120,100,tentacool,1,False,False,False,False,False,False,False,blue,tentacles,1.6,55.0
+117,74,geodude,1,['rock' 'ground'],[],['geodude-alola'],4,False,255,medium-slow,70,15,['mineral'],40,80,100,30,30,20,,0,False,False,False,False,False,False,False,brown,arms,0.4,20.0
+118,74,geodude-alola,1,['rock' 'electric'],[],['geodude'],4,False,255,medium-slow,70,15,['mineral'],40,80,100,30,30,20,,0,False,False,False,False,False,False,False,brown,arms,0.4,20.3
+119,75,graveler,1,['rock' 'ground'],[],['graveler-alola'],4,False,120,medium-slow,70,15,['mineral'],55,95,115,45,45,35,geodude,1,False,False,False,False,False,False,False,brown,humanoid,1.0,105.0
+120,75,graveler-alola,1,['rock' 'electric'],[],['graveler'],4,False,120,medium-slow,70,15,['mineral'],55,95,115,45,45,35,geodude,2,False,False,False,False,False,False,False,brown,humanoid,1.0,110.0
+121,76,golem,1,['rock' 'ground'],[],['golem-alola'],4,False,45,medium-slow,70,15,['mineral'],80,120,130,55,65,45,graveler,2,False,False,False,False,False,False,False,brown,humanoid,1.4,300.0
+122,76,golem-alola,1,['rock' 'electric'],[],['golem'],4,False,45,medium-slow,70,15,['mineral'],80,120,130,55,65,45,graveler,2,False,False,False,False,False,False,False,brown,humanoid,1.7,316.0
