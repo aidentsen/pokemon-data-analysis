@@ -1,19 +1,26 @@
 import pandas as pd
+from datetime import datetime
 
 from pokemondata import PokemonData
 
-rows_list = []
+pokemon_list = []
+final_mon_dex_num = 1025
 
-final_gen_1_mon_in_dataset = 151
+start_time = datetime.now()
 
-for dex_num in range(1, final_gen_1_mon_in_dataset + 1):
-    print(dex_num)
+for dex_num in range(1, final_mon_dex_num + 1):
+    print(dex_num)  # For logging dataset collation progress
+
     original_variety = PokemonData(dex_num)
-    rows_list.append(original_variety.to_dict())
-    for variety in original_variety.varieties:
-        print(dex_num, variety)
-        additional_variety = PokemonData(variety)
-        rows_list.append(additional_variety.to_dict())
+    pokemon_list.append(original_variety.to_dict())
 
-df = pd.DataFrame(rows_list)
-df.to_csv('gen_1_data.csv')
+    for variety in original_variety.varieties:  # Logs Pokémon varieties (e.g. Wormadam-Grass, Mega Evolutions)
+        print(dex_num, variety)  # For logging dataset collation progress
+
+        additional_variety = PokemonData(variety)
+        pokemon_list.append(additional_variety.to_dict())
+
+df = pd.DataFrame(pokemon_list)
+df.to_csv('pokemon_data.csv')
+
+print(f"Total time taken: {datetime.now() - start_time}")

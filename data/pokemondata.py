@@ -72,9 +72,9 @@ class PokemonData:
         self.is_baby = self.species_data.is_baby
         self.is_ultra_beast = self.id_is_ultra_beast()
         self.is_paradox = self.id_is_paradox()
-        self.is_mega = "mega" in self.name
-        self.is_totem = "totem" in self.name
-        self.is_gmax = "gmax" in self.name
+        self.is_mega = "-mega" in self.name
+        self.is_totem = "-totem" in self.name
+        self.is_gmax = "-gmax" in self.name
 
         # Appearance and dimensions
         self.color = self.species_data.color.name
