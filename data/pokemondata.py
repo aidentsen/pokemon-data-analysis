@@ -30,18 +30,15 @@ class PokemonData:
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
 
-    def __init__(self, dex_num, pokemon_variety=None):
+    def __init__(self, pokemon):
         # Set the Pokémon and Pokémon Species endpoints, since most other properties are derived from them
-        if pokemon_variety is None:
-            self.pokemon_data = pb.pokemon(dex_num)
-            self.species_data = pb.pokemon_species(dex_num)
-        else:  # For when a Pokémon ID is given, helpful for alternate variations
-            self.pokemon_data = pb.pokemon(pokemon_variety)
-            self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
+        self.pokemon_data = pb.pokemon(pokemon)
+        self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
 
         # Basic useful Pokémon information
-        self.dex_num = dex_num
+        self.dex_num = self.species_data.id
         self.name = self.pokemon_data.name
+        self.species = self.species_data.name
         self.generation = self.get_generation()
         self.types = [pokemon_type.type.name for pokemon_type in self.pokemon_data.types]
         self.abilities, self.hidden_ability = self.get_abilities()
@@ -62,7 +59,7 @@ class PokemonData:
         self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed = self.get_stats()
 
         # Evolution data
-        self.evolves_from = self.species_data.evolves_from_species
+        self.evolves_from = str(self.species_data.evolves_from_species)
         self.evolutionary_stage = self.get_evolutionary_stage()
 
         # Category markers - methods written where the data is not naturally present in the API
@@ -134,11 +131,11 @@ class PokemonData:
                 return -1
             else:  # Unevolved Pokémon
                 return 0
-        else:  # First evolution or second evolution
+        else:  # First or second evolution
             first_evolution_names = [evolution.species.name for evolution in evo_chain.chain.evolves_to]
-            if self.name in first_evolution_names:  # First evolution
+            if self.species in first_evolution_names:  # First evolution
                 return 1
-            else:  # There are only second evolution Pokémon remaining, since there are no four-stage evolution lines
+            else:  # Only second evolution Mons remaining, since there are no four-stage evolutions
                 return 2
 
     def id_is_starter(self):
@@ -171,6 +168,7 @@ class PokemonData:
         return {
             'dex_num': self.dex_num,
             'name': self.name,
+            'species': self.species,
             'generation': self.generation,
             'types': " ".join(self.types),
             'abilities': self.abilities,
