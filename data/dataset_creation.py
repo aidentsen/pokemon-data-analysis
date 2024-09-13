@@ -13,7 +13,7 @@ for dex_num in range(1, final_gen_1_mon_in_dataset + 1):
     rows_list.append(original_variety.to_dict())
     for variety in original_variety.varieties:
         print(dex_num, variety)
-        additional_variety = PokemonData(dex_num, variety)
+        additional_variety = PokemonData(variety)
         rows_list.append(additional_variety.to_dict())
 
 df = pd.DataFrame(rows_list)

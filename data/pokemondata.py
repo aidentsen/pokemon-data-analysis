@@ -25,7 +25,7 @@ class PokemonData:
         8: 810,
         9: 906
     }
-    non_standard_starters = ["pikachu", "eevee"]
+    non_standard_starters = ["pikachu", "pikachu-starter", "eevee", "eevee-starter"]
     pseudo_base_forms = [
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
@@ -57,6 +57,7 @@ class PokemonData:
 
         # Stats
         self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed = self.get_stats()
+        self.bst = sum([self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed])
 
         # Evolution data
         self.evolves_from = str(self.species_data.evolves_from_species)
@@ -183,6 +184,7 @@ class PokemonData:
             'hatch_counter': self.hatch_counter,
             'egg_groups': " ".join(self.egg_groups),
 
+            'bst': self.bst,
             'hp': self.hp,
             'attack': self.attack,
             'defense': self.defense,
