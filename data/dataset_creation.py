@@ -21,11 +21,14 @@ class PokemonData:
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
 
-    def __init__(self, dex_num):
+    def __init__(self, dex_num, pokemon_id=None):
         # Set the Pokémon and Pokémon Species endpoints, since most other properties are derived from them
-        # Note that these are NOT the same! 413 gives Wormadam and Wormadam-G, respectively
-        self.species_data = pb.pokemon_species(dex_num)
-        self.pokemon_data = pb.pokemon(dex_num)
+        if pokemon_id is None:
+            self.pokemon_data = pb.pokemon(dex_num)
+            self.species_data = pb.pokemon_species(dex_num)
+        else:  # For when a Pokémon ID is given, helpful for alternate variations
+            self.pokemon_data = pb.pokemon(pokemon_id)
+            self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
 
         # Basic useful Pokémon information
         self.dex_num = dex_num
@@ -47,7 +50,7 @@ class PokemonData:
         self.egg_groups = np.array([egg_group.name for egg_group in self.species_data.egg_groups])
 
         # Stats
-        STATS
+        self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed = self.get_stats()
 
         # Evolution data
         self.evolves_from = self.species_data.evolves_from_species
@@ -83,12 +86,48 @@ class PokemonData:
                 hidden_ability = pokemon_ability.ability.name
         return normal_abilities, hidden_ability
 
+    def get_varieties(self):
+        varieties = []
+        varieties_data = self.species_data.varieties
+        for variety in varieties_data:
+            if self.name != variety.pokemon.name:  # We don't want to include the variety of Pokémon already present
+                pokemon_id = int(variety.pokemon.url.strip('/').split('/')[-1])
+                varieties.append(pokemon_id)
+        return np.ndarray(varieties)
+
     def get_primary_ability(self):
         return self.pokemon_data.abilities[0].ability.name
 
+    def get_stats(self):
+        stat_dict = dict()
+        stat_object = self.pokemon_data.stats
+        for stat in stat_object:
+            stat_dict[stat.stat.name] = stat.base_stat
+        return (
+            stat_dict['hp'],
+            stat_dict['attack'],
+            stat_dict['defense'],
+            stat_dict['special-attack'],
+            stat_dict['special-defense'],
+            stat_dict['speed']
+        )
+
     def get_evolutionary_stage(self):
-        # Essentially go back through the evolves_from tree. There will be some need to also go forward
-        pass
+        # Get details on the Pokémon's evolutionary chain
+        evo_chain_id = self.species_data.evolution_chain.id
+        evo_chain = pb.evolution_chain(evo_chain_id)
+
+        if self.evolves_from is None:  # Either a single-stage or unevolved Pokémon
+            if not evo_chain.chain.evolves_to:  # Single-stage Pokémon
+                return -1
+            else:  # Unevolved Pokémon
+                return 0
+        else:  # First evolution or second evolution
+            first_evolution_names = [evolution.species.name for evolution in evo_chain.chain_evolves_to]
+            if self.name in first_evolution_names:  # First evolution
+                return 1
+            else:  # There are only second evolution Pokémon remaining, since there are no four-stage evolution lines
+                return 2
 
     def id_is_starter(self):
         # Need to account for non-standard starters (e.g. Pikachu and Eevee)
