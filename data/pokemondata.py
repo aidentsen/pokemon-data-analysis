@@ -60,7 +60,7 @@ class PokemonData:
         self.bst = sum([self.hp, self.attack, self.defense, self.sp_attack, self.sp_defense, self.speed])
 
         # Evolution data
-        self.evolves_from = str(self.species_data.evolves_from_species)
+        self.evolves_from = self.species_data.evolves_from_species
         self.evolutionary_stage = self.get_evolutionary_stage()
 
         # Category markers - methods written where the data is not naturally present in the API
@@ -127,7 +127,7 @@ class PokemonData:
         evo_chain_id = self.species_data.evolution_chain.id
         evo_chain = pb.evolution_chain(evo_chain_id)
 
-        if self.evolves_from is None:  # Either a single-stage or unevolved Pokémon
+        if not self.evolves_from:  # Either a single-stage or unevolved Pokémon
             if not evo_chain.chain.evolves_to:  # Single-stage Pokémon
                 return -1
             else:  # Unevolved Pokémon
@@ -172,7 +172,8 @@ class PokemonData:
             'species': self.species,
             'generation': self.generation,
             'types': " ".join(self.types),
-            'abilities': self.abilities,
+            'abilities': " ".join(self.abilities),
+            'hidden_ability': self.hidden_ability,
             'varieties': " ".join(self.varieties),
 
             'female_rate': self.female_rate,
