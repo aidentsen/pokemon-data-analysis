@@ -20,13 +20,13 @@ class PokemonData:
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
 
-    def __init__(self, dex_num, pokemon_id=None):
+    def __init__(self, dex_num, pokemon_variety=None):
         # Set the Pokémon and Pokémon Species endpoints, since most other properties are derived from them
-        if pokemon_id is None:
+        if pokemon_variety is None:
             self.pokemon_data = pb.pokemon(dex_num)
             self.species_data = pb.pokemon_species(dex_num)
         else:  # For when a Pokémon ID is given, helpful for alternate variations
-            self.pokemon_data = pb.pokemon(pokemon_id)
+            self.pokemon_data = pb.pokemon(pokemon_variety)
             self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
 
         # Basic useful Pokémon information
@@ -63,6 +63,8 @@ class PokemonData:
         self.is_baby = self.species_data.is_baby
         self.is_ultra_beast = self.id_is_ultra_beast()
         self.is_paradox = self.id_is_paradox()
+        self.is_mega = "mega" in self.name
+        self.is_gmax = "gmax" in self.name
 
         # Appearance and dimensions
         self.color = self.species_data.color.name
@@ -91,8 +93,9 @@ class PokemonData:
         for variety in varieties_data:
             if self.name != variety.pokemon.name:  # We don't want to include the variety of Pokémon already present
                 pokemon_id = int(variety.pokemon.url.strip('/').split('/')[-1])
-                varieties.append(pokemon_id)
-        return np.ndarray(varieties)
+                pokemon_name = pb.pokemon(pokemon_id).name
+                varieties.append(pokemon_name)
+        return np.asarray(varieties)
 
     def get_primary_ability(self):
         return self.pokemon_data.abilities[0].ability.name
@@ -122,7 +125,7 @@ class PokemonData:
             else:  # Unevolved Pokémon
                 return 0
         else:  # First evolution or second evolution
-            first_evolution_names = [evolution.species.name for evolution in evo_chain.chain_evolves_to]
+            first_evolution_names = [evolution.species.name for evolution in evo_chain.chain.evolves_to]
             if self.name in first_evolution_names:  # First evolution
                 return 1
             else:  # There are only second evolution Pokémon remaining, since there are no four-stage evolution lines
@@ -142,9 +145,9 @@ class PokemonData:
         return 0 <= position_in_generation <= 8  # The standard starters are always in the first nine Mons of a Gen
 
     def id_is_pseudo(self):
-        evolution_chain = self.species_data.evolution_chain.url
-        base_form_id = int(evolution_chain.strip('/').split('/')[-1])  # Isolate the base from Dex Number
-        return pb.pokemon(base_form_id).name in PokemonData.pseudo_base_forms
+        evolution_chain_id = self.species_data.evolution_chain.id
+        unevolved_form_name = pb.evolution_chain(evolution_chain_id).chain.species.name
+        return unevolved_form_name in PokemonData.pseudo_base_forms
 
     def id_is_ultra_beast(self):
         # All UBs have Beast Boost as their primary Ability, and no Mons with other Abilities are counted
@@ -189,6 +192,8 @@ class PokemonData:
             'is_baby': self.is_baby,
             'is_ultra_beast': self.is_ultra_beast,
             'is_paradox': self.is_paradox,
+            'is_mega': self.is_mega,
+            'is_gmax': self.is_gmax,
 
             'color': self.color,
             'shape': self.shape,
