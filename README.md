@@ -3,20 +3,11 @@
 ## Description
 An independent Python data science project, starting with data collection and collation. All stages will be logged on GitHub as the project progresses
 
-Current stage: v0.2, dataset creation
+Stages of the project thus far:
+- v0.1: attempts to use the data from [Rounak Banik's The Complete Pokémon Dataset](https://www.kaggle.com/datasets/rounakbanik/pokemon)
+- v0.2: independent dataset creation using [Greg Hilmes' pokebase](https://github.com/PokeAPI/pokebase), which is an interface for the RESTful Pokémon API, [PokeAPI](https://pokeapi.co/)
 
-## Data of interest
-
-### Already in PokeAPI (or can be processed from it)
-- Standard: Dex num, Name, Generation, Type, Abilities, Gender Rate, Stats 
-- Status Markers: Baby, Legendary, Mythical 
-- Evolution data: Evolves From, Evolution Chain 
-- Potentially for fun: Color, Shape
-
-### Will have to collect myself
-Status Markers: Ultra Beast, Starter, Pseudo-Legendary
-
-## Some questions to explore
+## Post-dataset creation questions to explore
 
 Exploratory
 - Stats by Pokémon type and by evolutionary stage
