@@ -25,5 +25,7 @@ That being said, there is still some data categories I will have to either colle
 - Update to logic to evaluate `evolutionary_stage` and `evolves_from` - due to initial refactoring attempts converting `evolves_from` into a string (and therefore the value not being `None`/falsy, the evolutionary stage for base form Pokémon would be evaluated as 2 rather than 0)
 - Addition of an `is_totem` marker after noticing multiple Totem Pokémon, which should also be filterable out from standard Pokémon
 
-## Edits following creation of full Pokémon Dataset
-TBD
+## Edits following attempt to create full Pokémon dataset
+- Took an incredibly long time to run, taking around 12 hours and still not completing, because it...
+- Crashed for Pokémon 957 Tinkatuff due to the Pokémon species lacking a `shape` attribute
+- As a result, need to recode everything so that it gets each attribute from the API entirely safely
