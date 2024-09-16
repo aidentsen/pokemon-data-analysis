@@ -30,8 +30,13 @@ class PokemonData:
         'dratini', 'larvitar', 'bagon', 'beldum', 'gible', 'deino', 'goomy', 'jangmo-o', 'dreepy', 'frigibax'
     ]
 
-    def __init__(self, pokemon, error_log_file):
-        # The Pokédex number (413) and specific Pokémon name (e.g. 'wormadam-grass') both work
+    def __init__(self, pokemon, error_log_file, species_data=None):
+        """
+        Initialises the Pokémon Data object, taking the following as parameters:
+        - pokemon: The Pokédex number (413) and specific Pokémon name (e.g. 'wormadam-grass') both work
+        - error_log_file: The error log file for the process
+        - species_data: The species data to use if provided, in order to avoid making unnecessary API calls
+        """
 
         # For logging errors during the process
         self.error_log_file = error_log_file
@@ -39,7 +44,7 @@ class PokemonData:
         try:
             # Set the Pokémon, Species and name, since these are important properties
             self.pokemon_data = pb.pokemon(pokemon)
-            self.species_data = pb.pokemon_species(self.pokemon_data.species.name)
+            self.species_data = species_data or pb.pokemon_species(self.pokemon_data.species.name)
             self.name = self.pokemon_data.name
         except AttributeError:
             self.pokemon_data = "missing"
